@@ -9,14 +9,11 @@
 </head>
 
 <body>
-  <div id="header">バスと電車の時刻表</div>
-
-  <script src="script.js"></script>
+  <div id="header">バス・電車の時刻表</div>
 
   <div id="main">
-    <p id="currentTime"></p>
 
-    <button id="bus_kirikae">行き↔帰り</button>
+    <!-- <input type="button" value="行き↔帰り" onclick="bus_kirikae()" id="kirikae_btn"> -->
 
     <div id="bus_syuppatu">
       <p id="basyo1">出発 近大高専前/三重交通</p>
@@ -34,34 +31,40 @@
             </div>
           </div>
         </div>
-    </div>
-
-    <div id="bus_toutyaku">
-      <p id="basyo2">到着 名張駅東口</p>
-        <div id="toutyaku-bus">
-          <p id="abcdef">到着時刻</p>  <!--id適当-->
-          <div id="yotei1-2">
-            <div id="arrival-time-1">
+        <p id="basyo2">到着 名張駅東口</p> 
+        <div id="next-bus">
+          <p id="abcdef">到着予想</p><!--id適当-->
+          <div id="time1-2">
+            <div id="closestTime-1">
               <p id="nunber-1">①</p>
-              <p id="arrival-time"></p>
+              <p id="nextTime"></p>
             </div>
 
-            <div id="next-arrival-time-2">
+            <div id="secondClosestTime-2">
               <p id="nunber-2">②</p>
-              <p id="next-arrival-time">xx:xx</p>
+              <p id="secondnextTime"></p>
             </div>
           </div>
         </div>
     </div>
-
   </div>
 
-  <p id="train">名張駅時刻表
-    <div id="function">
-      <button id="train_kirikae">大阪↔名古屋</button>
-      <button id="time_change" >検索時間変更</button>
-      <button onclick="location.href='https://ekitan.com/timetable/railway/line-station/356-35/d1?dw=0'"  id="detail" >時刻表詳細</a> <!--buttonで別タブで開くようにしたい。-->
-    </div>
+  <p id="train">本日(平日or休日)のダイア(〇〇方面)</p>
+  
+  <input type="button" value="大阪↔名古屋" onclick="train_kirikae()" id="function">
+  <div id="tableContainer">
+      <table id="timeTable">
+        <thead>
+            <tr>
+                <th id="hour">時刻</th>
+                <th id="day">電車</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <p id="train_overview"></p>
+  </div>
   </p>
-
+  <script src="script.js"></script>
 </body>
